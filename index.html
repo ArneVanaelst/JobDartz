@@ -88,15 +88,15 @@ body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;
 .ibtn{background:var(--card);border:1px solid var(--border);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);}
 .ibtn:active{background:var(--bg3);color:var(--text);}
 
-.pscroll{display:flex;gap:5px;padding:6px 8px;overflow-x:auto;scroll-snap-type:x mandatory;background:var(--bg2);flex-shrink:0;}
+.pscroll{display:flex;gap:10px;padding:10px 12px 12px;overflow-x:auto;scroll-snap-type:x mandatory;background:linear-gradient(180deg,rgba(15,18,40,0.10),rgba(15,18,40,0));flex-shrink:0;}
 .pscroll::-webkit-scrollbar{display:none;}
-.pcard{min-width:90px;flex:0 0 90px;background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:7px;scroll-snap-align:start;transition:all 0.18s;position:relative;}
-.pcard.active{border-color:var(--accent);background:rgba(71,168,58,0.1);flex:0 0 110px;min-width:110px;}
-.pcard .pn{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.pcard.active .pn{color:var(--accent);}
-.pcard .ps{font-family:'Montserrat',sans-serif;font-weight:800;font-size:32px;line-height:1.1;color:var(--text);}
-.pcard.active .ps{font-size:38px;color:var(--accent);}
-.pcard .psub{font-size:9px;color:var(--muted);margin-top:2px;font-weight:500;}
+.pcard{min-width:144px;flex:0 0 144px;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));border:1.5px solid rgba(240,244,255,0.12);border-radius:22px;padding:14px 12px 13px;scroll-snap-align:start;transition:all 0.18s;position:relative;box-shadow:0 8px 20px rgba(10,14,32,0.18);}
+.pcard.active{border-color:rgba(110,181,255,0.45);background:rgba(110,181,255,0.16);box-shadow:0 12px 26px rgba(10,14,32,0.24);flex:0 0 166px;min-width:166px;}
+.pcard .pn{font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;color:rgba(240,244,255,0.62);text-transform:uppercase;letter-spacing:0.9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pcard.active .pn{color:rgba(240,244,255,0.92);}
+.pcard .ps{font-family:'Montserrat',sans-serif;font-weight:900;font-size:48px;line-height:1;color:var(--text);margin-top:4px;}
+.pcard.active .ps{font-size:56px;color:#fff;}
+.pcard .psub{font-size:11px;color:rgba(240,244,255,0.6);margin-top:5px;font-weight:700;}
 .float-badge{position:absolute;top:5px;right:5px;background:rgba(224,85,85,0.2);color:var(--red);font-size:8px;font-weight:700;padding:2px 5px;border-radius:999px;}
 .float-ok{background:rgba(71,168,58,0.2);color:var(--green);}
 
@@ -143,22 +143,33 @@ body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;
 .dbtn .dsub{font-size:8px;opacity:0.6;display:block;margin-top:1px;}
 
 /* ===== CRICKET ===== */
-.crboard{padding:4px 8px;flex:1;overflow-y:auto;min-height:0;}
-.crrow{display:flex;align-items:center;gap:3px;padding:3px 0;border-bottom:1px solid rgba(240,244,255,0.08);}
+.crboard{padding:6px 10px 0;flex:1;overflow-y:auto;min-height:0;scroll-padding-top:6px;}
+.crrow{display:flex;align-items:center;gap:0;padding:2px 0;border-bottom:1px solid rgba(240,244,255,0.06);position:relative;z-index:1;}
 .crrow:last-child{border-bottom:none;}
-.crnum{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:var(--accent);width:24px;text-align:center;}
-.crcol{flex:1;display:flex;flex-direction:column;align-items:center;}
-.crmark{font-size:14px;line-height:1;font-family:'Montserrat',sans-serif;font-weight:700;}
+.crnum{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--accent);width:32px;text-align:center;flex:0 0 32px;position:relative;z-index:1;}
+.crcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:32px;position:relative;z-index:1;}
+.crcol.active-col{background:none;}
+.crmark{display:flex;align-items:center;justify-content:center;min-height:24px;font-family:'Montserrat',sans-serif;font-weight:800;}
 .crmark.o{color:var(--muted);}
-.crmark.h{color:var(--yellow);}
-.crmark.c{color:var(--green);}
-.crmark.pen{color:var(--red);font-size:10px !important;}
-.crrow.active-turn{background:rgba(51,64,118,0.55);}
-.crrow.active-turn .crnum{color:var(--accent);}
-.crkp{padding:5px 8px;flex-shrink:0;border-top:1px solid var(--border);display:flex;flex-direction:column;}
-.crrow.lownum .crnum{color:var(--yellow);font-size:13px;}
-.crrow.all-closed{opacity:0.35;}
+.crmark.pen{color:var(--red);font-size:11px !important;letter-spacing:-0.2px;}
+.crbadge{position:relative;width:22px;height:22px;display:inline-block;}
+.crbadge.m0::before{content:'';position:absolute;left:50%;top:50%;width:5px;height:5px;border-radius:50%;background:rgba(240,244,255,0.22);transform:translate(-50%,-50%);}
+.crbadge.m1::before{content:'';position:absolute;left:50%;top:1px;width:3px;height:20px;border-radius:999px;background:#f3cf61;transform:translateX(-50%) rotate(-28deg);box-shadow:0 0 10px rgba(243,207,97,0.18);}
+.crbadge.m2::before{content:'';position:absolute;inset:2px;border-radius:50%;border:3px solid #f3cf61;box-shadow:0 0 10px rgba(243,207,97,0.12);}
+.crbadge.m3::before{content:'';position:absolute;inset:2px;border-radius:50%;border:3px solid #8ee66b;box-shadow:0 0 10px rgba(142,230,107,0.14);}
+.crbadge.m3::after{content:'';position:absolute;left:50%;top:50%;width:13px;height:13px;transform:translate(-50%,-50%) rotate(45deg);background:linear-gradient(#8ee66b,#8ee66b) center/3px 13px no-repeat,linear-gradient(#8ee66b,#8ee66b) center/13px 3px no-repeat;}
+.crkp{padding:7px 8px calc(8px + env(safe-area-inset-bottom));flex-shrink:0;border-top:1px solid var(--border);display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(15,18,40,0),rgba(15,18,40,0.16));backdrop-filter:blur(6px);}
+.crrow.lownum .crnum{color:var(--red);font-size:13px;}
+.crrow.all-closed{opacity:0.30;}
 .crrow.all-closed .crnum{color:var(--muted);}
+.crscorewrap{padding-bottom:8px;position:relative;isolation:isolate;}
+.cr-active-strip{position:absolute;top:0;bottom:0;border-radius:18px;background:rgba(71,116,196,0.40);pointer-events:none;z-index:0;}
+.ct-pen-wrap{margin-top:6px;padding-top:4px;border-top:1px solid rgba(240,244,255,0.10);position:relative;z-index:1;}
+.ct-pen-scroll{max-height:none;overflow:visible;padding-right:0;}
+.ct-pen-scroll::-webkit-scrollbar{display:none;}
+.ct-pen-label{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 2px 6px;position:relative;z-index:1;}
+.ct-pen-title{font-size:9px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;color:rgba(240,244,255,0.62);}
+.ct-pen-total{font-size:10px;font-weight:800;color:var(--red);}
 /* crkp defined below */
 .crmods{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:4px;}
 .crnums{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:4px;}
@@ -382,6 +393,7 @@ let G={
   ctPens:[],
   ctHits:{},   // {playerIdx: {num: count}}
   ctAdvanced:false,
+  ctBoardFilter:'main',
   atcPos:[],
   hist:[]
 };
@@ -527,6 +539,7 @@ G.players=shuffled.map(nm=>({nm,score:startScore(),darts:0,hist:[],turns:[],elim
   if(isATC())initATC();
   if(G.mode==='cutthroat'){
     G.ctAdvanced=(ctVariant==='advanced');
+    G.ctBoardFilter='main';
     G.ctPens=G.ctAdvanced?[1,2,3,4,5,6,7,8,9,10,11,12,13,14]:[];
     G.ctHits={};
     G.players.forEach((_,i)=>{G.ctHits[i]={};G.ctPens.forEach(n=>{G.ctHits[i][n]=0;});});
@@ -844,80 +857,88 @@ function checkCrWin(){
   });
 }
 
+
 function renderCrUI(){
   const board=document.getElementById('crboard');
   const nP=G.players.length;
   const nLen=nP>5?3:nP>3?4:6;
   const pi=G.cur;
 
-  // ── Header row ──
-  const hdr='<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px">'+
-    '<div style="width:22px"></div>'+
+  const allClosed=num=>G.players.every((_,i)=>(G.crMarks[i]&&G.crMarks[i][num]||0)>=3);
+  const colClass=i=>'crcol'+(i===pi?' active-col':'');
+  const markBadge=m=>{
+    if(m<=0)return '<span class="crbadge m0"></span>';
+    if(m===1)return '<span class="crbadge m1"></span>';
+    if(m===2)return '<span class="crbadge m2"></span>';
+    return '<span class="crbadge m3"></span>';
+  };
+
+  const activeStrip='<div class="cr-active-strip" style="left:calc(32px + ((100% - 32px) / '+nP+') * '+pi+');width:calc((100% - 32px) / '+nP+');"></div>';
+
+  const hdr='<div style="display:flex;align-items:center;gap:0;margin-bottom:1px;padding:0 0 1px;position:relative;z-index:1">'+
+    '<div style="width:32px;flex:0 0 32px"></div>'+
     G.players.map((p,i)=>{
       const isCur=i===pi;
-      return '<div class="crcol" style="font-size:8px;text-transform:uppercase;letter-spacing:0.5px;font-weight:700;color:'+(isCur?'var(--accent)':'var(--muted)')+'">'+(isCur?'▶ ':'')+p.nm.slice(0,nLen)+'</div>';
+      return '<div class="'+colClass(i)+'" style="min-height:20px;font-size:8px;text-transform:uppercase;letter-spacing:0.6px;font-weight:800;color:'+(isCur?'#fff':'rgba(240,244,255,0.58)')+'">'+p.nm.slice(0,nLen)+'</div>';
     }).join('')+
     '</div>';
 
-  const allClosed=num=>G.players.every((_,i)=>(G.crMarks[i]&&G.crMarks[i][num]||0)>=3);
-
-  // ── Standard cricket rows ──
   const makeStdRow=num=>{
     const closed=allClosed(num);
     const cols=G.players.map((_,i)=>{
       const m=(G.crMarks[i]&&G.crMarks[i][num])||0;
-      const sym=m===0?'·':m===1?'/':m===2?'✕':'⊙';
-      const cls=m>=3?'c':m>0?'h':'o';
-      const isCur=i===pi;
-      return '<div class="crcol" style="'+(isCur?'background:rgba(51,64,118,0.5);border-radius:4px;':'')+'">'+'<div class="crmark '+cls+'">'+sym+'</div></div>';
+      return '<div class="'+colClass(i)+'"><div class="crmark">'+markBadge(m)+'</div></div>';
     }).join('');
-    return '<div class="crrow'+(closed?' all-closed':'')+'" style="padding:3px 0"><div class="crnum">'+(num===25?'B':num)+'</div>'+cols+'</div>';
+    return '<div class="crrow'+(closed?' all-closed':'')+'"><div class="crnum">'+(num===25?'B':num)+'</div>'+cols+'</div>';
   };
 
   const rows=G.crNums.map(makeStdRow).join('');
 
-  // ── Cut throat penalty rows (advanced mode) ──
   let lowSection='';
   if(G.mode==='cutthroat'&&G.ctAdvanced&&G.ctPens.length){
     const penRows=G.ctPens.map(num=>{
       const cols=G.players.map((_,i)=>{
         const h=(G.ctHits[i]&&G.ctHits[i][num])||0;
-        const isCur=i===pi;
-        let sym,cls;
-        if(h===0){sym='·';cls='o';}
-        else if(h<3){sym=h;cls='h';}
-        else if(h===3){sym='✕';cls='c';}
-        else{sym='+'+(h-3)*num;cls='pen';}
-        return '<div class="crcol" style="'+(isCur?'background:rgba(51,64,118,0.5);border-radius:4px;':'')+'"><div class="crmark '+cls+'" style="font-size:'+(h>3?'9px':'12px')+'">'+sym+'</div></div>';
+        let content='';
+        if(h<=3){
+          content=markBadge(h);
+        }else{
+          content='+'+((h-3)*num);
+        }
+        return '<div class="'+colClass(i)+'"><div class="crmark'+(h>3?' pen':'')+'">'+content+'</div></div>';
       }).join('');
-      return '<div class="crrow lownum" style="padding:2px 0"><div class="crnum" style="color:var(--red);font-size:12px">'+num+'</div>'+cols+'</div>';
+      return '<div class="crrow lownum"><div class="crnum">'+num+'</div>'+cols+'</div>';
     }).join('');
 
-    // Straf totals row
     const strafCols=G.players.map((_,i)=>{
-      const total=G.ctPens.reduce((s,n)=>{const h=(G.ctHits[i]&&G.ctHits[i][n])||0;return s+(h>3?(h-3)*n:0);},0);
-      const isCur=i===pi;
-      return '<div class="crcol" style="'+(isCur?'background:rgba(51,64,118,0.5);border-radius:4px;':'')+'">'+'<div style="font-weight:800;font-size:12px;color:var(--red)">'+total+'</div></div>';
+      const total=G.ctPens.reduce((s,n)=>{
+        const h=(G.ctHits[i]&&G.ctHits[i][n])||0;
+        return s+(h>3?(h-3)*n:0);
+      },0);
+      return '<div class="'+colClass(i)+'"><div style="font-weight:900;font-size:13px;color:var(--red)">'+total+'</div></div>';
     }).join('');
 
-    lowSection='<div style="height:1px;background:rgba(240,244,255,0.08);margin:3px 0"></div>'+
-      penRows+
-      '<div class="crrow" style="margin-top:1px;border-top:1px solid rgba(240,244,255,0.1)">'+
-      '<div class="crnum" style="font-size:9px;color:var(--red)">Σ</div>'+
-      strafCols+'</div>';
+    const totalPenalty=G.players.reduce((sum,_,i)=>sum+G.ctPens.reduce((s,n)=>{
+      const h=(G.ctHits[i]&&G.ctHits[i][n])||0;
+      return s+(h>3?(h-3)*n:0);
+    },0),0);
+
+    lowSection='<div class="ct-pen-wrap">'+
+      '<div class="ct-pen-label"><div class="ct-pen-title">Strafpunten 1-14</div><div class="ct-pen-total">'+totalPenalty+'</div></div>'+
+      '<div class="ct-pen-scroll">'+penRows+
+        '<div class="crrow" style="margin-top:2px;border-top:1px solid rgba(240,244,255,0.12)">'+
+          '<div class="crnum" style="font-size:10px;color:var(--red)">Σ</div>'+
+          strafCols+
+        '</div>'+
+      '</div></div>';
   }
 
-  // ── Points row ──
-  const ptsRow='<div class="crrow" style="margin-top:2px;border-top:1px solid rgba(240,244,255,0.15)">'+
+  const ptsRow='<div class="crrow" style="margin-top:1px;border-top:1px solid rgba(240,244,255,0.12)">'+
     '<div class="crnum" style="font-size:9px;color:var(--muted)">PTS</div>'+
-    G.players.map((_,i)=>{
-      const isCur=i===pi;
-      return '<div class="crcol" style="'+(isCur?'background:rgba(51,64,118,0.5);border-radius:4px;':'')+'"><div style="font-weight:800;font-size:15px;color:'+(isCur?'var(--accent)':'var(--text)')+'">'+G.crScores[i]+'</div></div>';
-    }).join('')+
+    G.players.map((_,i)=>'<div class="'+colClass(i)+'"><div style="font-weight:900;font-size:15px;color:'+(i===pi?'#fff':'var(--text)')+'">'+G.crScores[i]+'</div></div>').join('')+
     '</div>';
 
-  board.innerHTML=hdr+rows+lowSection+ptsRow;
-
+  board.innerHTML='<div class="crscorewrap">'+activeStrip+hdr+rows+ptsRow+lowSection+'</div>';
   // ── Multiplier buttons ──
   const mods=document.getElementById('crmods');
   mods.innerHTML=['×1','×2','×3'].map((l,i)=>{
@@ -1004,7 +1025,7 @@ function playAgain(){
   G.players.forEach(p=>{p.score=startScore();p.darts=0;p.hist=[];p.turns=[];p.elim=false;});
   G.cur=0;G.round=1;G.hist=[];G.darts=[];
   if(isCr())initCr();if(isATC())initATC();
-  if(G.mode==='cutthroat'){G.ctHits={};G.players.forEach((_,i)=>{G.ctHits[i]={};G.ctPens.forEach(n=>{G.ctHits[i][n]=0;});});}
+  if(G.mode==='cutthroat'){G.ctBoardFilter='main';G.ctHits={};G.players.forEach((_,i)=>{G.ctHits[i]={};G.ctPens.forEach(n=>{G.ctHits[i][n]=0;});});}
   showScreen('game');renderGame();
 }
 function goHome(){showScreen('setup');initSetup();}
